@@ -1,0 +1,16 @@
+diff --git a/libstratosphere/source/hos/hos_version_api.cpp b/libstratosphere/source/hos/hos_version_api.cpp
+index 511559d4..2307185e 100644
+--- a/libstratosphere/source/hos/hos_version_api.cpp
++++ b/libstratosphere/source/hos/hos_version_api.cpp
+@@ -113,7 +113,10 @@ namespace ams::hos {
+                 const u32 minor = (static_cast<u32>(current) >> 16) & 0xFF;
+ 
+                 const bool is_safely_tryable_version = (current <= hos::Version_Max) || (major == MaxMajor && minor <= MaxMinor);
+-                AMS_ABORT_UNLESS(is_safely_tryable_version);
++                /* match-version-unlocker: do not abort on firmware this library doesn't know yet. */
++                /* The module is meant to run there as well, and an abort here would leave ns */
++                /* waiting forever for the ncm mitm declared in mitm.lst, i.e. hang the boot. */
++                AMS_UNUSED(is_safely_tryable_version);
+             }
+ 
+             /* Ensure that this is a hos version compatible with previous approximations. */
