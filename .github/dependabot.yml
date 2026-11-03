@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # The Atmosphere-libs submodule, moved to the newest commit of its default branch. A failing build
+  # in the pull request can also mean patches/libstratosphere-allow-unknown-firmware.patch no longer
+  # applies. Test new libs on a console before merging: ns waits for this module at boot.
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "monthly"
