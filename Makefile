@@ -10,8 +10,12 @@ $(error could not read "title_id" from config.json)
 endif
 VERSION := $(shell git describe --tags --always 2>/dev/null || echo unknown)
 LIBS_PATCH := $(CURRENT_DIRECTORY)/patches/libstratosphere-allow-unknown-firmware.patch
+# The Atmosphere libs need a newer libnx than the latest libnx release. The libnx submodule is
+# installed into build/ and used instead of the libnx that comes with devkitPro.
+LIBNX_DESTDIR := $(CURRENT_DIRECTORY)/build/libnx
+export LIBNX := $(LIBNX_DESTDIR)$(DEVKITPRO)/libnx
 
-.PHONY: all dist release module patch_libs clean
+.PHONY: all dist release module patch_libs libnx clean
 
 all: dist
 
@@ -19,7 +23,12 @@ all: dist
 patch_libs:
 	@git -C Atmosphere-libs apply --reverse --check $(LIBS_PATCH) 2>/dev/null || git -C Atmosphere-libs apply $(LIBS_PATCH)
 
-module: patch_libs
+# Only stdout is hidden (the install lists every file); errors still show.
+libnx:
+	@echo "Building libnx from the submodule"
+	@$(MAKE) --no-print-directory -C libnx/nx install DESTDIR=$(LIBNX_DESTDIR) >/dev/null
+
+module: patch_libs libnx
 	$(MAKE) -f system_module.mk
 
 dist: module
@@ -36,4 +45,5 @@ release: dist
 clean:
 	$(MAKE) -f system_module.mk clean
 	$(MAKE) -C Atmosphere-libs/libstratosphere clean
+	$(MAKE) -C libnx/nx clean
 	rm -rf dist build out $(PROJECT_NAME)-*.zip
