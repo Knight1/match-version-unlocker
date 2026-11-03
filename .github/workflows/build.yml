@@ -19,7 +19,7 @@ jobs:
           apt-get install -y --no-install-recommends git zip ca-certificates
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
