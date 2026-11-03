@@ -1,0 +1,13 @@
+.vscode/
+build/
+out/
+dist/
+*.zip
+*.elf
+*.kip
+*.npdm
+*.nso
+*.nsp
+# Symbol listing written by the devkitPro link rule; contains local build paths.
+*.lst
+!mitm.lst
