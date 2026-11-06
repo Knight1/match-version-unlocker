@@ -99,7 +99,7 @@ created from `v*` tags.
 
 - switchbrew Community, for documenting `ns`, `ncm` and `ldn` 
 - [SciresM](https://github.com/SciresM) for creating [Atmosphere-NX](https://github.com/atmosphere-nx/atmosphere) and libstratosphere
-- [ldn_debug_logger](https://github.com/Julienraptor01/ldn_debug_logger), which this module grew out of.
+- [ldn_debug_logger](https://codeberg.org/TSRBerry/ldn_debug_logger), which this module grew out of.
 
 ## License
 
