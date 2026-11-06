@@ -12,9 +12,9 @@ When a Switch 1 on firmware 20.0.0 or newer offers an update to a Switch 2 for a
 
 Confirmed with Switch 1 (21.1.0) to Switch 2 (21.1.0)
 - Animal Crossing: New Horizons - SuperXCI - 01006F8002326000 (1.8.0 -> 3.0.3)
-- The Legend of Zelda: Breath of the Wild - SuperXCI - 01007EF00011E800 (1.6.0 -> 1.9.0)
+- The Legend of Zelda: Breath of the Wild - SuperXCI - 01007EF00011E000 (1.6.0 -> 1.9.0)
 - The Legend of Zelda: Tears of the Kingdom - XCI - 0100F2C0115B6000 (1.0.0 -> 1.4.3)
-- Super Mario Bros. Wonder - SuperXCI - 010015100B514800 (1.0.1 -> 1.2.0)
+- Super Mario Bros. Wonder - SuperXCI - 010015100B514000 (1.0.1 -> 1.2.0) (also tested on 23.0.1 S1/S2 - AMS1.12.1 thank you jasapolis!)
 - Mario Kart 8 Deluxe - SuperXCI - 0100152000022000 (3.0.3 -> 3.0.5)
 
 ## Why it happens
